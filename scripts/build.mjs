@@ -1,0 +1,13 @@
+import {readFileSync, writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+const root = new URL('../', import.meta.url);
+const script = new URL('snapenhanceGui.user.js', root);
+const source = readFileSync(new URL('camera-source.js', root), 'utf8').trim();
+const current = readFileSync(script, 'utf8');
+const start = '// LOCAL_CAMERA_SOURCE_START';
+const end = '// LOCAL_CAMERA_SOURCE_END';
+const begin = current.indexOf(start);
+const finish = current.indexOf(end, begin);
+if (begin < 0 || finish < 0) throw new Error('Missing camera source markers');
+writeFileSync(script, current.slice(0, begin) + start + '\n' + source + '\ninstallLocalCameraSource(window.unsafeWindow || window);\n' + current.slice(finish));
+console.log('Built ' + fileURLToPath(script));
