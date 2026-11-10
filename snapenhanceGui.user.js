@@ -2,9 +2,15 @@
 // @name         Sharrafona SnapEnhance Web
 // @namespace    https://github.com/sharrafona/snapenhance-web-gui
 // @description  Sharrafona's maintained SnapEnhance Web fork with a settings GUI
-// @version      1.2.4
+// @version      1.2.5
 // @author       sharrafona (fork maintainer), appelmoesGG, SnapEnhance
-// @match        *://*.snapchat.com/web/*
+// @match        https://snapchat.com/web
+// @match        https://snapchat.com/web?*
+// @match        https://snapchat.com/web/*
+// @match        https://www.snapchat.com/web
+// @match        https://www.snapchat.com/web?*
+// @match        https://www.snapchat.com/web/*
+// @match        https://web.snapchat.com/*
 // @source       https://github.com/sharrafona/snapenhance-web-gui
 // @supportURL   https://github.com/sharrafona/snapenhance-web-gui/issues
 // @downloadURL  https://raw.githubusercontent.com/sharrafona/snapenhance-web-gui/main/snapenhanceGui.user.js
@@ -27,7 +33,7 @@ CURRENT KNOWN BUGS:
 - No typing indication is not working when "Hide Bitmoji" is off
 */
 
-const SEversion = "1.2.4";
+const SEversion = "1.2.5";
 let snapEnhanceSettings = null;
 let haveRemovedBluePopup = false;
 
