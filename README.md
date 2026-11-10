@@ -1,36 +1,27 @@
-# SnapEnhance Web
-The web version of SnapEnhance (now with a cool GUI😎)
+# Sharrafona SnapEnhance Web
+
+My maintained fork of [SnapEnhance Web GUI](https://github.com/appelmoesgg/snapenhance-web-gui), originally created by appelmoesGG and SnapEnhance.
+
+## Install
+1. Install [Tampermonkey for Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Tampermonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/).
+2. Follow [Tampermonkey's browser setup instructions](https://www.tampermonkey.net/faq.php#Q209).
+3. [Install Sharrafona SnapEnhance Web](https://raw.githubusercontent.com/sharrafona/snapenhance-web-gui/main/snapenhanceGui.user.js).
+4. Disable other SnapEnhance userscripts to avoid conflicting hooks, then reload [Snapchat Web](https://web.snapchat.com/).
+
+Updates are served from this repository.
 
 ## Features
-- 🚧Bypass upload size
-- ⬇️ Download any media using right click context menu
-- 📲 Bypass screenshot detection
-- 🔎 Remove blur when unfocused
-- 👻 Disable conversation read receipts
-- 👻 Disable story read receipts
-- 👻 Hide bitmoji in chat
-- 💬 Remove typing notification
-- 🔥 Cool GUI
+Inherited features include media downloading through the context menu, upload-size hooks, focus blur controls, read receipt controls, Bitmoji visibility controls, typing notification controls, and a settings GUI. Compatibility depends on Snapchat's current implementation; these features have not all been verified against the live service.
 
-## Known bugs
-- "No Typing Indication" is not working when "Hide Bitmoji" is off
-- ~~All conversations are marked as "away" when "Anti Unfocus Blur" is off~~
+## Known limitations
+- Upstream reports that “No Typing Indication” does not work when “Hide Bitmoji” is off.
+- Snapchat interface selectors and request hooks can change.
+- The script loads dat.GUI 0.7.9 from cdnjs.
 
-## Installation
-1. Install [Tampermonkey (Chrome)](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) | [Tampermonkey (Firefox)](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-2. For Chromium based browsers (eg. Chrome, Opera,...) you should follow [this](https://www.tampermonkey.net/faq.php#Q209) tutorial to enable Developer Mode for extensions. Otherwise the script won't work!
-3. Now you can click the link below to install the userscript instantly:
-https://raw.githubusercontent.com/appelmoesgg/snapenhance-web-gui/master/snapenhanceGui.user.js
-> [!WARNING]
-> If you are currently using the snapEnhance WEB script, you should disable/delete it because they will interfere with eachother
+## Development
+The active script is `snapenhanceGui.user.js`. The old TypeScript file is retained as historical source.
+Report issues in [this fork](https://github.com/sharrafona/snapenhance-web-gui/issues).
 
-## Userscript Source
-[appelmoesGG's Github](https://github.com/appelmoesgg/snapenhance-web-gui/blob/main/snapenhanceGui.user.js)
-
-## Developing
-- Main file is just snapenhanceGui.js <br>
-- Just open a pull request and describe what you add/fix and I'll (probably) accept it
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=appelmoesgg/snapenhance-web-gui&type=Date)](https://www.star-history.com/#appelmoesgg/snapenhance-web-gui&Date)
+## Credits and license
+Maintained by **sharrafona**. Original work by **appelmoesGG and SnapEnhance**.
+Distributed under [GPL-3.0-only](LICENSE). Original license and commit history are preserved.

@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name         SnapEnhance Web with GUI
-// @namespace    snapenhance-web-gui
-// @description  A userscript to Enhance the User experience on Snapchat Web
-// @version      1.2.3
-// @author       appelmoesGG,SnapEnhance
+// @name         Sharrafona SnapEnhance Web
+// @namespace    https://github.com/sharrafona/snapenhance-web-gui
+// @description  Sharrafona's maintained SnapEnhance Web fork with a settings GUI
+// @version      1.2.4
+// @author       sharrafona (fork maintainer), appelmoesGG, SnapEnhance
 // @match        *://*.snapchat.com/web/*
-// @source       https://github.com/appelmoesgg/snapenhance-web-gui
-// @supportURL   https://github.com/appelmoesgg/snapenhance-web-gui/issues
-// @downloadUrl  https://raw.githubusercontent.com/appelmoesgg/snapenhance-web-gui/master/snapenhanceGui.user.js
-// @updateUrl    https://raw.githubusercontent.com/appelmoesgg/snapenhance-web-gui/master/snapenhanceGui.user.js
+// @source       https://github.com/sharrafona/snapenhance-web-gui
+// @supportURL   https://github.com/sharrafona/snapenhance-web-gui/issues
+// @downloadURL  https://raw.githubusercontent.com/sharrafona/snapenhance-web-gui/main/snapenhanceGui.user.js
+// @updateURL    https://raw.githubusercontent.com/sharrafona/snapenhance-web-gui/main/snapenhanceGui.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=snapchat.com
 // @require      https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js
 // @license      GPL-3.0-only
@@ -17,6 +17,9 @@
 // ==/UserScript==
 
 /*
+Fork maintained by sharrafona. Original work by appelmoesGG and SnapEnhance.
+Modified 2026-11-10: fork branding, install/update URLs, and document-start observer fallback.
+
 TODO FOR ME:
 - Make this code better organized
 
@@ -24,7 +27,7 @@ CURRENT KNOWN BUGS:
 - No typing indication is not working when "Hide Bitmoji" is off
 */
 
-const SEversion = "1.2.3";
+const SEversion = "1.2.4";
 let snapEnhanceSettings = null;
 let haveRemovedBluePopup = false;
 
@@ -105,7 +108,7 @@ function waitForElm(selector) {
             }
         });
 
-        observer.observe(document.body, {
+        observer.observe(document.body || document.documentElement, {
             childList: true,
             subtree: true
         });
@@ -121,7 +124,7 @@ var observer = new MutationObserver(function() {
             antiDistraction();
         }
 });
-observer.observe(document.body, {childList: true,subtree: true});
+observer.observe(document.body || document.documentElement, {childList: true,subtree: true});
 
 
 //wait for the top bar to load then inject the GUI
@@ -154,7 +157,7 @@ function antiDistraction(){
 }
 
 (function (window) {
-    console.log(`%cWelcome to SnapEnhance Web v${localStorage.getItem("SEversion")}!`, "font-size: 2em; background-color: black; font-style: bold;")
+    console.log(`%cWelcome to Sharrafona SnapEnhance Web v${localStorage.getItem("SEversion")}!`, "font-size: 2em; background-color: black; font-style: bold;")
 
 
     function simpleHook(object, name, proxy) {
@@ -327,7 +330,7 @@ function antiDistraction(){
     });
 }(window.unsafeWindow || window));
 
-const gui = new dat.GUI({name: "SnapEnhance WEB", autoPlace: false, closeOnTop: true})
+const gui = new dat.GUI({name: "Sharrafona SnapEnhance", autoPlace: false, closeOnTop: true})
 gui.width = 300;
 gui.domElement.style.zIndex = 100;
 gui.domElement.style.marginTop = "auto"
